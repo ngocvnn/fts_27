@@ -13,6 +13,8 @@ gem 'devise'
 gem 'faker'
 gem 'ransack'
 gem 'cancancan', '~> 1.10'
+gem 'whenever', require: false
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -52,5 +54,7 @@ group :development, :test do
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem "letter_opener"
+  gem 'letter_opener_web', "~> 1.2.0"
 end
 

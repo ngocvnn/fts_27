@@ -54,3 +54,6 @@ en:
   back_to_category: "Back to Category"
   done: "Done"
   testing: "Testing"
+  mailer:
+    email_notice: "Email Notice"
+    notice: "Log in and do your exam"

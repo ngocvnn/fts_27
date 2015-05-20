@@ -22,4 +22,8 @@ Rails.application.routes.draw do
 
     resources :exams, only: [:index, :destroy]
   end
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end

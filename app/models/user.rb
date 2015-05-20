@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validate :avatar_size
 
+  def self.send_mail
+    User.all.each {|user| UserMailer.notice_exam(user).deliver_now}
+  end
+
   private
   def avatar_size
     if avatar.size > Settings.max_avatar_file_size.megabytes
