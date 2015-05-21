@@ -3,8 +3,14 @@ class ExamsController < ApplicationController
 
   def index
     @exam = Exam.new
-    @exams = current_user.exams.created_sort
-      .paginate page: params[:page], per_page: 5
+
+    if params[:q].blank?
+      @search = Exam.ransack params[:q]
+      @exams = @search.result.created_sort.paginate page: params[:page], per_page: 5
+    else
+      @search = Exam.ransack category_id_eq: params[:q][:category_id]
+      @exams = @search.result(distinct: true).created_sort.paginate page: params[:page], per_page: 5
+    end 
   end 
 
   def show

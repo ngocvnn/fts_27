@@ -9,6 +9,16 @@
         <%= f.submit t("button.start_new"), class: "start-new btn btn-primary" %>
       </div>
     <% end %>
+    <%= search_form_for @search do |f| %>
+      <div class="field">
+        <%= f.label :category_id, "Category Id" %>
+        <%= f.text_field :category_id %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Search", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
   </div>  
 </div>
 <br>
