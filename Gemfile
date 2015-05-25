@@ -52,6 +52,18 @@ group :development, :test do
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers'
+  # gem 'rspec-collection_matchers'
+  gem 'cucumber-rails', require: false
+  # gem "capybara-webkit"
+  gem 'database_cleaner'
 end
 
 group :production do

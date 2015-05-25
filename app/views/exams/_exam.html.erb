@@ -13,7 +13,7 @@
     </span>
     <span class="col-md-4"></span>
     <span class="col-md-4">
-      <%= exam.status == t(:start) ? (link_to t(:start), edit_exam_path(exam))
+      <%= exam.status == "Start" ? (link_to "Start", edit_exam_path(exam))
         : (exam.time_out? ? (link_to t(:view), exam_path(exam)) 
           : (link_to t(:view), edit_exam_path(exam)))%>
     </span>

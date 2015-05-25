@@ -6,7 +6,7 @@ class Exam < ActiveRecord::Base
   accepts_nested_attributes_for :answersheets
 
   before_update :update_result
-  before_create :random_questions
+  # before_create :random_questions
 
   scope :created_sort, -> {order created_at: :desc}
 
@@ -26,8 +26,8 @@ class Exam < ActiveRecord::Base
     self.result = "#{score.to_s}/#{Settings.default_questions_num}"
   end
 
-  def random_questions
-    questions = self.category.questions.random_questions
-    questions.each{|question| self.answersheets.build question: question}
-  end
+  # def random_questions
+  #   questions = self.category.questions.random_questions
+  #   questions.each{|question| self.answersheets.build question: question}
+  # end
 end

@@ -1,4 +1,5 @@
 class ExamsController < ApplicationController
+  before_action :authenticate_user!
   load_and_authorize_resource
 
   def index
@@ -17,7 +18,7 @@ class ExamsController < ApplicationController
       flash[:success] = t("flash.exam_created")
       redirect_to exams_path
     else
-      redirect_to :back
+      render :index
     end
   end
 
@@ -35,7 +36,7 @@ class ExamsController < ApplicationController
       @exam.time_out? ? (redirect_to exam_path @exam) 
         : (redirect_to edit_exam_path @exam)
     else
-      redirect_to :back
+      render :edit
     end
   end
 

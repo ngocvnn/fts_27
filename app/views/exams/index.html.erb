@@ -1,12 +1,12 @@
 <% provide :title, t("title.all_exam") %>
-<h1><%= t("title.all_exam") %></h1>
+<h1>All examinations</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @exam do |f| %>
       <div class="border-c">
         <%= f.collection_select :category_id, Category.all, :id, :name, 
           {}, {class: "form-control", style: "width: auto"} %>    
-        <%= f.submit t("button.start_new"), class: "start-new btn btn-primary" %>
+        <%= f.submit "Start", class: "start-new btn btn-primary" %>
       </div>
     <% end %>
   </div>  
